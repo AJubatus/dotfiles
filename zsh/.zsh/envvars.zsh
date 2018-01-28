@@ -1,0 +1,1 @@
+export PRIMARYMONITOR=DP-0

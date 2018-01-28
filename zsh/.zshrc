@@ -41,8 +41,8 @@ if ! zgen saved; then
 fi
 
 # Source extra config files
-for file in ~/.zsh/**/*(.)
-	do source $file
+for file in ~/.zsh/*; do
+	source "$file"
 done
 
 # powerlevel9k settings
