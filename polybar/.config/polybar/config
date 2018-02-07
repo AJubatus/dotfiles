@@ -37,7 +37,7 @@ base0F = ${xrdb:color14:#000000}
 ;base0F = #ff5370
 
 [bar/top]
-monitor = ${env:PRIMARYMONITOR}
+monitor = ${env:MONITOR}
 
 height = 25
 
@@ -64,13 +64,13 @@ tray-position = right
 [module/workspaces]
 type = internal/i3
 format = <label-state> <label-mode>
-strip-wsnumbers = true
+strip-wsnumbers = false
 
-ws-icon-0 = 1:Main;
-ws-icon-1 = 2:Right;
-ws-icon-2 = 3:Left;
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
 ws-icon-3 = 9:Music;
-ws-icon-4 = 10:Social;
+ws-icon-4 = 10:Social;
 ws-icon-default =  
 
 label-mode = %mode%
