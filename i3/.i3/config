@@ -30,7 +30,7 @@ font pango:xos4 Terminess Powerline 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -169,7 +169,7 @@ bindsym $mod+r mode "resize"
 
 # Lock Screen
 
-bindsym $mod+Control+l exec i3lock -B=1 -k
+bindsym $mod+Control+l exec ~/.i3/lock.sh
 
 # smart borders on
 for_window [class="^.*"] border pixel 0
@@ -177,5 +177,6 @@ gaps inner 16
 gaps outer 0
 smart_gaps on
 
-set_from_resource $PRIMARYMONITOR echo "$PRIMARYMONITOR"
 exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id compton --config ~/.config/compton.conf
+exec_always --no-startup-id feh --no-fehbg --bg-scale --recursive --randomize "${HOME}/.wallpapers/"

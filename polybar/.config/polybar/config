@@ -82,7 +82,7 @@ label-mode-underline = ${colors.base09}
 label-focused = %icon%
 label-focused-padding = 4
 label-focused-foreground = ${colors.base05}
-label-focused-background = ${colors.base01}
+;label-focused-background = ${colors.base01}
 label-focused-underline = ${colors.base0B}
 
 label-unfocused = %icon%
@@ -105,7 +105,23 @@ label-urgent-underline = ${colors.base0A}
 type = internal/network
 interface = wlp3s0
 
-format-connected = <label-connected> 
+format-connected = <label[colors]
+base00 = ${xrdb:color0:#000000}
+base01 = ${xrdb:color10:#000000}
+base02 = ${xrdb:color11:#000000}
+base03 = ${xrdb:color8:#000000}
+base04 = ${xrdb:color12:#000000}
+base05 = ${xrdb:color7:#000000}
+base06 = ${xrdb:color13:#000000}
+base07 = ${xrdb:color15:#000000}
+base08 = ${xrdb:color1:#000000}
+base09 = ${xrdb:color9:#000000}
+base0A = ${xrdb:color3:#000000}
+base0B = ${xrdb:color2:#000000}
+base0C = ${xrdb:color6:#000000}
+base0D = ${xrdb:color4:#000000}
+base0E = ${xrdb:color5:#000000}
+base0F = ${xrdb:color14:#000000}-connected> 
 
 format-disconnected = offline 
 format-disconnected-foreground = ${colors.base03}
@@ -155,7 +171,7 @@ bar-used-empty-foreground = #444444
 
 [module/backlight]
 type = internal/xbacklight
-output = eDP1
+output = ${env:MONITOR}
 format = <label> <ramp>
 
 ramp-0 = 🌕
@@ -240,12 +256,13 @@ label-separator = |
 label-separator-foreground = ${colors.base03}
 
 menu-0-0 = Logout
-menu-0-0-exec = exit
+menu-0-0-exec = xfce4-session-logout
 menu-0-1 = Reboot
 menu-0-1-exec = systemctl reboot
 menu-0-2 = Shutdown
 menu-0-2-exec = systemctl poweroff
 
+
+
 [module/title]
 type = internal/xwindow
-

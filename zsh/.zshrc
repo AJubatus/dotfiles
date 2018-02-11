@@ -1,4 +1,4 @@
-# POWERLEVEL9K_MODE='awesome-fontconfig'
+# POWERLEVEL9K_MODE='nerdfont-complete'
 
 [ -d ~/.zgen ] || git clone https://github.com/tarjoilija/zgen.git ~/.zgen
 
