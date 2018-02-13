@@ -1,4 +1,4 @@
-# POWERLEVEL9K_MODE='nerdfont-complete'
+POWERLEVEL9K_MODE='awesome-fontconfig'
 
 [ -d ~/.zgen ] || git clone https://github.com/tarjoilija/zgen.git ~/.zgen
 
@@ -44,7 +44,6 @@ fi
 for file in ~/.zsh/*; do
 	source "$file"
 done
-
 # powerlevel9k settings
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
