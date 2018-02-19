@@ -36,70 +36,89 @@ base0F = ${xrdb:color14:#000000}
 ;base0E = #c792ea
 ;base0F = #ff5370
 
+
 [bar/top]
 monitor = ${env:MONITOR}
 
-height = 25
-
+widht = 100%
+height = 26
+separator = " "
 background = ${colors.base00}
 foreground = ${colors.base05}
 
-line-size = 2
-
-module-margin = 3
-padding-right = 1
+module-margin = 1
+;padding-right = 1
 
 ; font-N = <fontconfig pattern>;<vertical offset>
-font-0 = Roboto-Regular:size=10;0
+font-0 = Terminess Powerline:size=14;0
 font-1 = Hack:size=10;0
 font-2 = FontAwesome:size=10;2
 font-3 = NotoEmoji-Regular:size=10;
 
-modules-left = workspaces title
-modules-center = datetime
-modules-right = cpu memory network backlight volume battery powermenu
+
+modules-left = workspaces
+modules-center = title
+modules-right = ram cpu temperature pavolume battery time
 
 tray-position = right
 
 [module/workspaces]
 type = internal/i3
-format = <label-state> <label-mode>
-strip-wsnumbers = false
+;format = <label-state> <label-mode>
+enable-click = true
+enable-scroll = false
+strip-wsnumbers = true
 
-ws-icon-0 = 1:Main;
-ws-icon-1 = 2:Right;
-ws-icon-2 = 3:Left;
-ws-icon-3 = 9:Music;
-ws-icon-4 = 10:Social;
-ws-icon-default =  
+;ws-icon-0 = 1:Main;
+;ws-icon-1 = 2:Right;
+;ws-icon-2 = 3:Left;
+;ws-icon-3 = 9:Music;
+;ws-icon-4 = 10:Social;
+;ws-icon-default =  
 
-label-mode = %mode%
-label-mode-padding = 4
-label-mode-foreground = ${colors.base05}
-label-mode-background = ${colors.base01}
-label-mode-underline = ${colors.base09}
+;label-mode = %mode%
+;label-mode-padding = 4
+;label-mode-foreground = ${colors.base05}
+;label-mode-background = ${colors.base01}
+;label-mode-underline = ${colors.base09}
 
-label-focused = %icon%
-label-focused-padding = 4
-label-focused-foreground = ${colors.base05}
+;label-focused = %icon%
+;label-focused-padding = 4
+;label-focused-foreground = ${colors.base05}
 ;label-focused-background = ${colors.base01}
-label-focused-underline = ${colors.base0B}
+;label-focused-underline = ${colors.base0B}
 
-label-unfocused = %icon%
-label-unfocused-padding = 4
-label-unfocused-foreground = ${colors.base03}
-label-unfocused-background = ${colors.base00}
+;label-unfocused = %icon%
+;label-unfocused-padding = 4
+;label-unfocused-foreground = ${colors.base03}
+;label-unfocused-background = ${colors.base00}
 
-label-visible = %icon%
-label-visible-padding = 4
-label-visible-foreground = ${colors.base05}
-label-visible-background = ${colors.base00}
+;label-visible = %icon%
+;label-visible-padding = 4
+;label-visible-foreground = ${colors.base05}
+;label-visible-background = ${colors.base00}
 
-label-urgent = %icon%
-label-urgent-padding = 4
+;label-urgent = %icon%
+;label-urgent-padding = 4
+;label-urgent-foreground = ${colors.base07}
+;label-urgent-background = ${colors.base03}
+;label-urgent-underline = ${colors.base0A}
+
+
+format-padding = 0
+label-focused =  
+label-focused-foreground = ${colors.base05}
+label-focused-padding = 1
+
+label-unfocused =  
+label-unfocused-padding = 1
+
+label-visible =  
+label-visible-padding = 1
+
+label-urgent =  
 label-urgent-foreground = ${colors.base07}
-label-urgent-background = ${colors.base03}
-label-urgent-underline = ${colors.base0A}
+label-urgent-padding = 1
 
 [module/network]
 type = internal/network
@@ -169,6 +188,16 @@ bar-used-fill = ─
 bar-used-empty = ─
 bar-used-empty-foreground = #444444
 
+[module/ram]
+type = internal/memory
+interval = 3
+
+label-foreground = ${colors.base0B}
+label-padding = 1
+format-prefix = ""
+format-prefix-foreground = ${colors.base0B}
+format-padding = 1
+
 [module/backlight]
 type = internal/xbacklight
 output = ${env:MONITOR}
@@ -179,6 +208,20 @@ ramp-1 = 🌔
 ramp-2 = 🌓
 ramp-3 = 🌒
 ramp-4 = 🌑
+
+[module/pavolume]
+type = custom/script
+interval = 2
+exec = ~/.config/polybar/pavolume.sh
+
+click-right = exec pavucontrol
+click-left = ~/.config/polybar/pavolume.sh --togmute
+scroll-up = ~/.config/polybar/pavolume.sh --up
+scroll-down = ~/.config/polybar/pavolume.sh --down
+
+label = %output%
+label-foreground = ${colors.base0C}
+format-padding = 1
 
 [module/volume]
 type = internal/volume
@@ -198,7 +241,7 @@ ramp-volume-3 = 
 
 [module/battery]
 type = internal/battery
-battery = BAT1
+battery = BAT0
 adapter = ACAD
 poll-interval = 1
 full-at = 98
@@ -242,6 +285,14 @@ label = %date% %time%
 
 ; vim:ft=dosini
 
+[module/time]
+type = internal/date
+interval = 40
+
+format-padding = 1
+
+date = "%b %e, %Y - %I:%M %p"
+
 [module/powermenu]
 type = custom/menu
 
@@ -263,6 +314,12 @@ menu-0-2 = Shutdown
 menu-0-2-exec = systemctl poweroff
 
 
-
 [module/title]
 type = internal/xwindow
+
+format-prefix = "  "
+;format-foreground = ${colors.brown}
+
+;label-foreground = ${colors.brown}
+label = "%title:0:35:...% "
+label-maxlen = 75
