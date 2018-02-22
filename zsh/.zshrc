@@ -44,6 +44,11 @@ fi
 for file in ~/.zsh/*; do
 	source "$file"
 done
+
+# Source Base16-Shell files
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+
 # powerlevel9k settings
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
