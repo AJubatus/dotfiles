@@ -173,8 +173,8 @@ bindsym $mod+Control+l exec ~/.i3/lock.sh
 
 # smart borders on
 for_window [class="^.*"] border pixel 0
-gaps inner 16
-gaps outer 0
+gaps inner 10
+gaps outer 5
 smart_gaps on
 
 exec_always --no-startup-id ~/.config/polybar/launch.sh
