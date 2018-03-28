@@ -3,200 +3,138 @@ screenchange-reload = true
 
 [colors]
 base00 = ${xrdb:color0:#000000}
-base01 = ${xrdb:color10:#000000}
-base02 = ${xrdb:color11:#000000}
+base01 = ${xrdb:color18:#000000}
+base02 = ${xrdb:color19:#000000}
 base03 = ${xrdb:color8:#000000}
-base04 = ${xrdb:color12:#000000}
+base04 = ${xrdb:color20:#000000}
 base05 = ${xrdb:color7:#000000}
-base06 = ${xrdb:color13:#000000}
+base06 = ${xrdb:color21:#000000}
 base07 = ${xrdb:color15:#000000}
-base08 = ${xrdb:color1:#000000}
-base09 = ${xrdb:color9:#000000}
+base08 = ${xrdb:color9:#000000}
+base09 = ${xrdb:color16:#000000}
 base0A = ${xrdb:color3:#000000}
 base0B = ${xrdb:color2:#000000}
 base0C = ${xrdb:color6:#000000}
 base0D = ${xrdb:color4:#000000}
-base0E = ${xrdb:color5:#000000}
-base0F = ${xrdb:color14:#000000}
+base0E = ${xrdb:color4:#000000}
+base0F = ${xrdb:color5:#000000}
 
-;base00 = #263238
-;base01 = #2e3c43
-;base02 = #314549
-;base03 = #546e7a
-;base04 = #b2ccd6
-;base05 = #eeffff
-;base06 = #eeffff
-;base07 = #ffffff
-;base08 = #f07178
-;base09 = #f78c6c
-;base0A = #ffcb6b
-;base0B = #c3e88d
-;base0C = #89ddff
-;base0D = #82aaff
-;base0E = #c792ea
-;base0F = #ff5370
-
+[global/wm]
+margin-top = 5
+margin-bottom = 5
 
 [bar/top]
 monitor = ${env:MONITOR}
 
 widht = 100%
-height = 26
-separator = " "
+height = 27
+offset-x = 0
+offset-y = 0
+
 background = ${colors.base00}
 foreground = ${colors.base05}
 
-module-margin = 1
-;padding-right = 1
+overline-size = 2
+overline-color = #f00
+underline-size = 2
+underline-color = #00f
+
+border-bottom-size = 2
+border-bottom-color = ${colors.base03}
+
+padding-left  = 0
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
+
 
 ; font-N = <fontconfig pattern>;<vertical offset>
-font-0 = Terminess Powerline:size=14;0
-font-1 = Hack:size=10;0
-font-2 = FontAwesome:size=10;2
-font-3 = NotoEmoji-Regular:size=10;
+font-0 = Terminess Powerline:pixelsize=14;0
+font-1 = unifont:fontformat=truetype:size=7:heavy;-2
+font-2 = FontAwesome:pixelsize=10;
 
 
-modules-left = workspaces
-modules-center = title
-modules-right = ram cpu temperature pavolume battery time
+modules-left = i3 xwindow
+modules-center = pavolume
+modules-right = cpu memory wlan eth temperature date powermenu
 
 tray-position = right
+tray-padding = 2
 
-[module/workspaces]
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %index%
+label-focused-background = ${colors.base01}
+label-focused-underline= ${colors.base08}
+label-focused-padding = 2
+
+label-occupied = %index%
+label-occupied-padding = 2
+
+label-urgent = %index%!
+label-urgent-background = ${colors.base05}
+label-urgent-padding = 2
+
+label-empty = %index%
+label-empty-foreground = ${colors.base04}
+label-empty-padding = 2
+
+[module/i3]
 type = internal/i3
-;format = <label-state> <label-mode>
-enable-click = true
-enable-scroll = false
-strip-wsnumbers = true
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
 
-;ws-icon-0 = 1:Main;
-;ws-icon-1 = 2:Right;
-;ws-icon-2 = 3:Left;
-;ws-icon-3 = 9:Music;
-;ws-icon-4 = 10:Social;
-;ws-icon-default =  
+label-mode-padding = 2
+label-mode-foreground = #000
+label-mode-background = ${colors.base04}
 
-;label-mode = %mode%
-;label-mode-padding = 4
-;label-mode-foreground = ${colors.base05}
-;label-mode-background = ${colors.base01}
-;label-mode-underline = ${colors.base09}
+label-focused = %index%
+label-focused-background = ${module/bspwm.label-focused-background}
+label-focused-underline = ${module/bspwm.label-focused-underline}
+label-focused-padding = ${module/bspwm.label-focused-padding}
 
-;label-focused = %icon%
-;label-focused-padding = 4
-;label-focused-foreground = ${colors.base05}
-;label-focused-background = ${colors.base01}
-;label-focused-underline = ${colors.base0B}
+label-unfocused = %index%
+label-unfocused-padding = ${module/bspwm.label-occupied-padding}
 
-;label-unfocused = %icon%
-;label-unfocused-padding = 4
-;label-unfocused-foreground = ${colors.base03}
-;label-unfocused-background = ${colors.base00}
+label-urgent = %index%!
+label-urgent-background = ${module/bspwm.label-urgent-background}
+label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
-;label-visible = %icon%
-;label-visible-padding = 4
-;label-visible-foreground = ${colors.base05}
-;label-visible-background = ${colors.base00}
-
-;label-urgent = %icon%
-;label-urgent-padding = 4
-;label-urgent-foreground = ${colors.base07}
-;label-urgent-background = ${colors.base03}
-;label-urgent-underline = ${colors.base0A}
-
-
-format-padding = 0
-label-focused =  
-label-focused-foreground = ${colors.base05}
-label-focused-padding = 1
-
-label-unfocused =  
-label-unfocused-padding = 1
-
-label-visible =  
-label-visible-padding = 1
-
-label-urgent =  
-label-urgent-foreground = ${colors.base07}
-label-urgent-padding = 1
-
-[module/network]
-type = internal/network
-interface = wlp3s0
-
-format-connected = <label[colors]
-base00 = ${xrdb:color0:#000000}
-base01 = ${xrdb:color10:#000000}
-base02 = ${xrdb:color11:#000000}
-base03 = ${xrdb:color8:#000000}
-base04 = ${xrdb:color12:#000000}
-base05 = ${xrdb:color7:#000000}
-base06 = ${xrdb:color13:#000000}
-base07 = ${xrdb:color15:#000000}
-base08 = ${xrdb:color1:#000000}
-base09 = ${xrdb:color9:#000000}
-base0A = ${xrdb:color3:#000000}
-base0B = ${xrdb:color2:#000000}
-base0C = ${xrdb:color6:#000000}
-base0D = ${xrdb:color4:#000000}
-base0E = ${xrdb:color5:#000000}
-base0F = ${xrdb:color14:#000000}-connected> 
-
-format-disconnected = offline 
-format-disconnected-foreground = ${colors.base03}
-
-label-connected = %essid%
+label-visible = %index%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
 
 [module/cpu]
 type = internal/cpu
-interval = 0.5
-format = <label> <ramp-coreload>
-label = CPU
-
-ramp-coreload-0 = ▁
-ramp-coreload-0-foreground = ${colors.base0B}
-ramp-coreload-1 = ▂
-ramp-coreload-1-foreground = ${colors.base0B}
-ramp-coreload-2 = ▃
-ramp-coreload-2-foreground = ${colors.base0B}
-ramp-coreload-3 = ▄
-ramp-coreload-3-foreground = ${colors.base0A}
-ramp-coreload-4 = ▅
-ramp-coreload-4-foreground = ${colors.base0A}
-ramp-coreload-5 = ▆
-ramp-coreload-5-foreground = ${colors.base09}
-ramp-coreload-6 = ▇
-ramp-coreload-6-foreground = ${colors.base09}
-ramp-coreload-7 = █
-ramp-coreload-7-foreground = ${colors.base08}
+interval = 2
+format-prefix-foreground = ${colors.base06}
+format-underline = ${colors.base09}
+label = %percentage%%
 
 [module/memory]
 type = internal/memory
-format = <label> <bar-used>
-label = RAM
+interval = 2
+format-prefix-foreground = ${colors.base06}
+format-underline = ${colors.base0B}
+label = %percentage_used%%
 
-bar-used-width = 24
-bar-used-foreground-0 = ${colors.base0B}
-bar-used-foreground-1 = ${colors.base0B}
-bar-used-foreground-2 = ${colors.base0B}
-bar-used-foreground-3 = ${colors.base0A}
-bar-used-foreground-4 = ${colors.base09}
-bar-used-foreground-5 = ${colors.base08}
-bar-used-indicator = |
-bar-used-indicator-foreground = #ff
-bar-used-fill = ─
-bar-used-empty = ─
-bar-used-empty-foreground = #444444
+[module/eth]
+type = internal/network
+interface = enp0s31f6
+interval = 3.0
 
-[module/ram]
-type = internal/memory
-interval = 3
+format-connected-underline = ${colors.base0A}
+format-connected-prefix = " "
+format-connected-foreground-foreground = ${colors.base01}
+label-connected = %local_ip%
 
-label-foreground = ${colors.base0B}
-label-padding = 1
-format-prefix = ""
-format-prefix-foreground = ${colors.base0B}
-format-padding = 1
+format-disconnected-underline = ${self.format-connected-underline}
+label-disconnected = %ifname% disconnected
+label-disconnected-foreground = ${colors.base01}
+
 
 [module/backlight]
 type = internal/xbacklight
@@ -268,50 +206,48 @@ animation-charging-3 = 
 animation-charging-4 = 
 animation-charging-framerate = 500
 
-[module/datetime]
+
+[module/date]
 type = internal/date
-format = <label>
+interval = 5
 
-;date = %d-%m-%Y
-;date-alt = %A, %d %B %Y
+date = "📅 %Y-%m-%d"
+date-alt =
 
-;time = %H:%M
-;time-alt = %H:%M:%S
+time = %H:%M
+time-alt = %H:%M
 
-date = %A, %d %B %Y
-to,e = %H:%M:%S
+format-prefix-foreground = ${colors.base06}
+format-underline = ${colors.base0C}
 
 label = %date% %time%
-
-; vim:ft=dosini
-
-[module/time]
-type = internal/date
-interval = 40
-
-format-padding = 1
-
-date = "%b %e, %Y - %I:%M %p"
 
 [module/powermenu]
 type = custom/menu
 
 format-spacing = 1
 
-label-open = 
-
-label-open-foreground = ${colors.base08}
-label-close = Cancel
-label-close-foreground = ${colors.base08}
+label-open =  power
+label-open-foreground = ${colors.base05}
+label-close =  cancel
+label-close-foreground = ${colors.base05}
 label-separator = |
-label-separator-foreground = ${colors.base03}
+label-separator-foreground = ${colors.base06}
 
-menu-0-0 = Logout
-menu-0-0-exec = xfce4-session-logout
-menu-0-1 = Reboot
-menu-0-1-exec = systemctl reboot
-menu-0-2 = Shutdown
-menu-0-2-exec = systemctl poweroff
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = power off
+menu-2-0-exec = sudo poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
 
 
 [module/title]
