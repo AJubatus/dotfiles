@@ -178,5 +178,5 @@ gaps outer 5
 smart_gaps on
 
 exec_always --no-startup-id ~/.config/polybar/launch.sh
-exec_always --no-startup-id compton --config ~/.config/compton.conf
+exec_always --no-startup-id compton --backend glx --paint-on-overlay --mark-ovredir-focused --config ~/.config/compton.conf
 exec_always --no-startup-id feh --no-fehbg --bg-scale --recursive --randomize "${HOME}/.wallpapers/"
