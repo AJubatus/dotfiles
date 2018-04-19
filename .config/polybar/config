@@ -31,7 +31,7 @@ height = 27
 offset-x = 0
 offset-y = 0
 
-background = ${colors.base00}
+background = ${colors.base01}
 foreground = ${colors.base05}
 
 overline-size = 2
@@ -39,8 +39,8 @@ overline-color = #f00
 underline-size = 2
 underline-color = #00f
 
-border-bottom-size = 2
-border-bottom-color = ${colors.base03}
+;border-bottom-size = 2
+;border-bottom-color = ${colors.base03}
 
 padding-left  = 0
 padding-right = 2
@@ -72,7 +72,7 @@ label-mode-foreground = #000
 label-mode-background = ${colors.base04}
 
 label-focused = %index%
-label-focused-background = ${colors.base01}
+label-focused-background = ${colors.base02}
 label-focused-underline= ${colors.base08}
 label-focused-padding = 2
 
@@ -92,7 +92,7 @@ label-visible-padding = ${self.label-focused-padding}
 type = internal/cpu
 interval = 2
 format-prefix-foreground = ${colors.base06}
-format-underline = ${colors.base09}
+format-underline = ${colors.base08}
 label = %percentage%%
 
 [module/memory]
@@ -139,7 +139,7 @@ scroll-up = ~/.config/polybar/pavolume.sh --up
 scroll-down = ~/.config/polybar/pavolume.sh --down
 
 label = %output%
-label-foreground = ${colors.base0C}
+label-foreground = ${colors.base0E}
 format-padding = 1
 
 [module/volume]
@@ -164,7 +164,7 @@ mapping = true
 
 [module/battery]
 type = internal/battery
-battery = BAT0
+battery = BAT1
 adapter = ACAD
 poll-interval = 1
 full-at = 98
@@ -180,7 +180,7 @@ ramp-capacity-1-foreground = ${colors.base09}
 ramp-capacity-2 = 
 ramp-capacity-2-foreground = ${colors.base0A}
 ramp-capacity-3 = 
-ramp-capacity-3-foreground = ${colors.base05}
+ramp-capacity-3-foreground = ${colors.base0B}
 ramp-capacity-4 = 
 ramp-capacity-4-foreground = ${colors.base05}
 
@@ -203,7 +203,7 @@ time = "%H:%M"
 time-alt = "%H:%M"
 
 format-prefix-foreground = ${colors.base06}
-format-underline = ${colors.base0C}
+format-underline = ${colors.base0A}
 
 label = %date%%time%
 
