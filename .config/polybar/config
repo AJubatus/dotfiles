@@ -54,31 +54,12 @@ font-1 = unifont:fontformat=truetype:size=7:heavy;-2
 font-2 = FontAwesome:pixelsize=10;
 
 
-modules-left = i3 xwindow
+modules-left = i3 title
 modules-center = pavolume
-modules-right = cpu memory wlan eth temperature date powermenu
+modules-right = cpu memory temperature date powermenu
 
 tray-position = right
 tray-padding = 2
-
-[module/bspwm]
-type = internal/bspwm
-
-label-focused = %index%
-label-focused-background = ${colors.base01}
-label-focused-underline= ${colors.base08}
-label-focused-padding = 2
-
-label-occupied = %index%
-label-occupied-padding = 2
-
-label-urgent = %index%!
-label-urgent-background = ${colors.base05}
-label-urgent-padding = 2
-
-label-empty = %index%
-label-empty-foreground = ${colors.base04}
-label-empty-padding = 2
 
 [module/i3]
 type = internal/i3
@@ -91,16 +72,16 @@ label-mode-foreground = #000
 label-mode-background = ${colors.base04}
 
 label-focused = %index%
-label-focused-background = ${module/bspwm.label-focused-background}
-label-focused-underline = ${module/bspwm.label-focused-underline}
-label-focused-padding = ${module/bspwm.label-focused-padding}
+label-focused-background = ${colors.base01}
+label-focused-underline= ${colors.base08}
+label-focused-padding = 2
 
 label-unfocused = %index%
-label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+label-unfocused-padding = 2
 
 label-urgent = %index%!
-label-urgent-background = ${module/bspwm.label-urgent-background}
-label-urgent-padding = ${module/bspwm.label-urgent-padding}
+label-urgent-background = ${colors.base05}
+label-urgent-padding = 2
 
 label-visible = %index%
 label-visible-background = ${self.label-focused-background}
@@ -149,7 +130,7 @@ ramp-4 = 🌑
 
 [module/pavolume]
 type = custom/script
-interval = 2
+interval = 1
 exec = ~/.config/polybar/pavolume.sh
 
 click-right = exec pavucontrol
@@ -162,20 +143,24 @@ label-foreground = ${colors.base0C}
 format-padding = 1
 
 [module/volume]
-type = internal/volume
-speaker-mixer = Speaker
-headphone-mixer = Headphone
-headphone-id = 17
+type = internal/pulseaudio
 
-format-volume = <label-volume> <ramp-volume>
+sink = alsa_output.pci-0000_00_1f.3.analog-stereo
 
-label-muted = off 
-label-muted-foreground = ${colors.base03}
+use-ui-max = true
 
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
-ramp-volume-3 = 
+ramp-volume-0 = ""
+ramp-volume-1 = ""
+ramp-volume-2 = ""
+ramp-volume-foreground = ${colors.base0C}
+format-volume = <ramp-volume> <label-volume>
+
+format-muted = <label-muted>
+label-muted = mute
+format-muted-prefix = " "
+format-muted-prefix-foreground = ${colors.base08}
+
+mapping = true
 
 [module/battery]
 type = internal/battery
@@ -211,16 +196,16 @@ animation-charging-framerate = 500
 type = internal/date
 interval = 5
 
-date = "📅 %Y-%m-%d"
-date-alt =
+date = 
+date-alt = "%Y-%m-%d "
 
-time = %H:%M
-time-alt = %H:%M
+time = "%H:%M"
+time-alt = "%H:%M"
 
 format-prefix-foreground = ${colors.base06}
 format-underline = ${colors.base0C}
 
-label = %date% %time%
+label = %date%%time%
 
 [module/powermenu]
 type = custom/menu
@@ -253,9 +238,9 @@ menu-2-1-exec = menu-open-0
 [module/title]
 type = internal/xwindow
 
-format-prefix = "  "
 ;format-foreground = ${colors.brown}
 
 ;label-foreground = ${colors.brown}
-label = "%title:0:35:...% "
+;format-prefix = ""
+label = "%title:0:25:...% "
 label-maxlen = 75
