@@ -31,7 +31,7 @@ height = 27
 offset-x = 0
 offset-y = 0
 
-background = ${colors.base01}
+background = ${colors.base00}
 foreground = ${colors.base05}
 
 overline-size = 2
