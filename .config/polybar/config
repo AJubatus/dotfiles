@@ -69,10 +69,10 @@ wrapping-scroll = false
 
 label-mode-padding = 2
 label-mode-foreground = #000
-label-mode-background = ${colors.base04}
+label-mode-background = ${colors.base03}
 
 label-focused = %index%
-label-focused-background = ${colors.base02}
+label-focused-background = ${colors.base00}
 label-focused-underline= ${colors.base08}
 label-focused-padding = 2
 

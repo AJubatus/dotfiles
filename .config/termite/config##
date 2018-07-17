@@ -7,11 +7,12 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Terminess Powerline 14px
+font = Terminess Powerline 10
+#font = Hack 10
 scrollback_lines = 10000
 search_wrap = true
 #icon_name = terminal
-geometry = 1280x720
+#geometry = 1280x720
 
 # "system", "on" or "off"
 cursor_blink = system
@@ -51,6 +52,7 @@ foreground      = #E5E9F0
 foreground_bold = #ECEFF4
 cursor          = #ECEFF4
 background      = #2E3440
+background	= rgba(2E, 34, 40, AA)
 
 # 16 color space
 
