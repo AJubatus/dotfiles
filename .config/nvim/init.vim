@@ -1,10 +1,10 @@
-" Stuff for google env                                                                                              
+" Stuff for google env
 function IsGoogle()
   return !empty(glob("~/.config/nvim/google.vim"))
 endfunction
-if IsGoogle()
-  so ~/.config/nvim/google.vim
-endif
+"if IsGoogle()
+"  so ~/.config/nvim/google.vim
+"endif
 
 " Plug initialization
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
@@ -29,3 +29,5 @@ colorscheme base16-default-dark
 autocmd vimenter * AirlineRefresh
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+
+set number

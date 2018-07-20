@@ -14,12 +14,6 @@ search_wrap = true
 #icon_name = terminal
 #geometry = 1280x720
 
-# "system", "on" or "off"
-cursor_blink = system
-
-# "block", "underline" or "ibeam"
-cursor_shape = block
-
 # $BROWSER is used by default if set, with xdg-open as a fallback
 #browser = xdg-open
 
@@ -33,63 +27,58 @@ filter_unmatched_urls = true
 #modify_other_keys = false
 
 [hints]
-#font = Monospace 12
-#foreground = #dcdccc
-#background = #3f3f3f
-#active_foreground = #e68080
-#active_background = #3f3f3f
+
 #padding = 2
 #border = #3f3f3f
 #border_width = 0.5
 #roundness = 2.0
 
-# vim: ft=dosini cms=#%s
 [colors]
-# Base16 Nord
-# Author: arcticicestudio
+# Base16 OneDark
+# Author: Lalit Magant (http://github.com/tilal6991)
 
-foreground      = #E5E9F0
-foreground_bold = #ECEFF4
-cursor          = #ECEFF4
-background      = #2E3440
-background	= rgba(2E, 34, 40, AA)
+foreground          = #abb2bf
+foreground_bold     = #b6bdca
+cursor              = #b6bdca
+cursor_foreground   = #282c34
+background          = rgba(40, 44, 52)
 
 # 16 color space
 
 # Black, Gray, Silver, White
-color0  = #2E3440
-color8  = #4C566A
-color7  = #E5E9F0
-color15 = #8FBCBB
+color0  = #282c34
+color8  = #545862
+color7  = #abb2bf
+color15 = #c8ccd4
 
 # Red
-color1  = #88C0D0
-color9  = #88C0D0
+color1  = #e06c75
+color9  = #e06c75
 
 # Green
-color2  = #BF616A
-color10 = #BF616A
+color2  = #98c379
+color10 = #98c379
 
 # Yellow
-color3  = #5E81AC
-color11 = #5E81AC
+color3  = #e5c07b
+color11 = #e5c07b
 
 # Blue
-color4  = #EBCB8B
-color12 = #EBCB8B
+color4  = #61afef
+color12 = #61afef
 
 # Purple
-color5  = #A3BE8C
-color13 = #A3BE8C
+color5  = #c678dd
+color13 = #c678dd
 
 # Teal
-color6  = #D08770
-color14 = #D08770
+color6  = #56b6c2
+color14 = #56b6c2
 
 # Extra colors
-color16 = #81A1C1
-color17 = #B48EAD
-color18 = #3B4252
-color19 = #434C5E
-color20 = #D8DEE9
-color21 = #ECEFF4
+color16 = #d19a66
+color17 = #be5046
+color18 = #353b45
+color19 = #3e4451
+color20 = #565c64
+color21 = #b6bdca
