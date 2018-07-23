@@ -1,18 +1,1 @@
-Xft.dpi: 107
-Xft.autohint: 0
-Xft.lcdfilter: lcddefault
-Xft.hintstyle: hintslight
-Xft.hinting: 1
-Xft.antialias: 1
-Xft.rgba: rgb
-
-URxvt*boldFont                    : xft:SauceCodePro Nerd Font Mono:bold:pixelsize=14:antialias=true
-URxvt*font                        : xft:xos4 Terminess Powerline:pixelsize=14:antialias=true
-URxvt*iso14755                    : false
-URxvt*iso14755_52                 : false
-Uxvt*italicFont                   : xft:SauceCodePro Nerd Font Mono:italic:pixelsize=14:antialias=true
-URxvt.scrollBar: false
-URxvt.urgentOnBell: true
-URxvt*depth: 32
-
 #include ".Xresources.d/colors"
