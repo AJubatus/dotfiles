@@ -24,7 +24,7 @@ margin-top = 5
 margin-bottom = 5
 
 [bar/top]
-monitor = ${env:MONITOR}
+monitor = ${env:MONITOR:DP-0}
 
 widht = 100%
 height = 27
@@ -49,8 +49,8 @@ module-margin-right = 2
 
 
 ; font-N = <fontconfig pattern>;<vertical offset>
-font-0 = Terminess Powerline:pixelsize=14;0
-font-1 = unifont:fontformat=truetype:size=7:heavy;-2
+font-0 = FuraMono Nerd Font:size=12:style=Medium;2
+font-1 = unifont:fontformat=truetype:size=12;
 font-2 = FontAwesome:pixelsize=10;
 
 
@@ -74,7 +74,7 @@ label-mode-background = ${colors.base03}
 label-focused = %index%
 label-focused-background = ${colors.base00}
 label-focused-underline= ${colors.base08}
-label-focused-padding = 2
+label-focused-padding = 1
 
 label-unfocused = %index%
 label-unfocused-padding = 2
@@ -85,8 +85,8 @@ label-urgent-padding = 2
 
 label-visible = %index%
 label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
-label-visible-padding = ${self.label-focused-padding}
+label-visible-underline = ${colors.base04}
+label-visible-padding = 1
 
 [module/cpu]
 type = internal/cpu
@@ -104,7 +104,7 @@ label = %percentage_used%%
 
 [module/eth]
 type = internal/network
-interface = enp0s31f6
+interface = eth0
 interval = 3.0
 
 format-connected-underline = ${colors.base0A}
@@ -144,8 +144,6 @@ format-padding = 1
 
 [module/volume]
 type = internal/pulseaudio
-
-sink = alsa_output.pci-0000_00_1f.3.analog-stereo
 
 use-ui-max = true
 
@@ -210,6 +208,8 @@ label = %date%%time%
 [module/powermenu]
 type = custom/menu
 
+expand-right = true
+
 format-spacing = 1
 
 label-open =  power
@@ -233,7 +233,6 @@ menu-2-0 = power off
 menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
-
 
 [module/title]
 type = internal/xwindow
