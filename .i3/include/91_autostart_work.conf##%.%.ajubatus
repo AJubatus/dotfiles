@@ -1,2 +1,7 @@
+################
+#AUTOSTART WORK#
+################
+
 exec_always --no-startup-id killall -rq goobuntu_indicator.py; /usr/share/goobuntu-indicator/goobuntu_indicator.py
 exec_always --no-startup-id killall -rq nm-applet; nm-applet
+
