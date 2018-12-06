@@ -1,3 +1,0 @@
-exec_always --no-startup-id /usr/share/goobuntu-indicator/goobuntu_indicator.py
-exec_always --no-startup-id nm-applet
-exec_always --no-startup-id xfce4-power-manager
