@@ -34,7 +34,8 @@ if ! zgen saved; then
 
     # theme
     #zgen oh-my-zsh themes/refined
-    zgen load bhilburn/powerlevel9k powerlevel9k
+    #zgen load bhilburn/powerlevel9k powerlevel9k
+    zgen load romkatv/powerlevel10k powerlevel9k
 
     # save all to init script
     zgen save
