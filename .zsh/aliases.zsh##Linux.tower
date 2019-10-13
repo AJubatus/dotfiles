@@ -1,2 +1,0 @@
-alias dcrun='docker-compose -f ~/git/docker-compose/docker-compose.yml '
-alias dclogs='docker-compose -f ~/git/docker-compose/docker-compose.yml logs -tf --tail="50" '
