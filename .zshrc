@@ -30,7 +30,7 @@ if ! zgen saved; then
     zgen load zsh-users/zsh-completions src
 
     # theme
-    zgen load romkatv/powerlevel10k powerlevel9k
+    zgen load romkatv/powerlevel10k powerlevel10k
 
     # save all to init script
     zgen save
