@@ -1,1 +1,1 @@
-export PRIMARYMONITOR=DP-0
+export GOPATH=$HOME/go
